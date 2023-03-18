@@ -9,7 +9,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: [self-hosted]
+    runs-on: self-hosted
   
     steps:
     - name: Run Pre Deployment Script
@@ -18,11 +18,11 @@ jobs:
   changeApproval:
     name: ServiceNow Change Approval
     needs: build
-    runs-on: [self-hosted]
+    runs-on: self-hosted
 
     steps:     
       - name: ServiceNow Change Approval
-        uses: ServiceNow/servicenow-devops-change@v1.34.2
+        uses: ServiceNow/servicenow-devops-change@v1.35.2
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
@@ -37,7 +37,7 @@ jobs:
   deploy:
     name: Deploy
     needs: changeApproval
-    runs-on: [self-hosted]
+    runs-on: self-hosted
 
     steps:     
       - name: Run Deployment Script
