@@ -12,20 +12,8 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Set Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Compile
-      run: npm run build
-
+    - name: Run Pre Deployment Script
+      run: echo "Pre Deployment Finished.."    
     
   changeApproval:
     name: ServiceNow Change Approval
@@ -53,4 +41,4 @@ jobs:
 
     steps:     
       - name: Run Deployment Script
-        run: echo "Deployment Finished..
+        run: echo "Deployment Finished.."
